@@ -6,6 +6,7 @@ const qrcode = require('qrcode-terminal');
 const fs = require('fs');
 const path = require('path');
 
+const chromium = require('chromium');
 const app = express();
 app.use(express.json());
 
@@ -260,9 +261,14 @@ let qrGenerated = false;
 
 const client = new Client({
     authStrategy: new LocalAuth({ dataPath: SESSIONS_DIR }),
-    puppeteer: { 
+    puppeteer: {
+        executablePath: chromium.path,
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        args: [
+            ...chromium.args,
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+        ],
     }
 });
 
