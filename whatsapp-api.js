@@ -262,7 +262,7 @@ let qrGenerated = false;
 const client = new Client({
     authStrategy: new LocalAuth({ dataPath: SESSIONS_DIR }),
     puppeteer: {
-        executablePath: chromium.path,
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium-browser',
         headless: true,
         args: [
             '--no-sandbox',
