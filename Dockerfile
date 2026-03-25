@@ -8,21 +8,13 @@ RUN apk add --no-cache \
 	harfbuzz \
 	ca-certificates \
 	ttf-freefont \
-	nss \
 	alsa-lib \
-	at-spi2-atk \
-	at-spi2-core \
-	cups-libs \
 	dbus-libs \
-	eudev-libs \
-	gtk+3.0 \
-	libdrm \
 	libxcomposite \
 	libxdamage \
 	libxrandr \
 	mesa-gl \
-	pango \
-	udev
+	pango
 
 WORKDIR /app
 
